@@ -7,12 +7,12 @@ const divLoading = document.querySelector("#div-loading-card");
 
 async function callApi() {
   const resp = await axios.get("https://randomuser.me/api/");
+  console.log(resp.data);
+
   imgProfile.src = resp.data.picture;
-  pName.text = resp.data.name.first + resp.data.name.large;
+  pName.text = resp.data.name.first + resp.data.name.last;
   pEmail.text = resp.data.email;
   pAddress.text = resp.data.address;
-
-  console.log(resp.data);
 }
 
 callApi();
